@@ -25,7 +25,10 @@ try {
 const { notify } = config
 const args = process.argv.slice(2)
 const flag = (name) => args.includes(`--${name}`)
-const option = (name) => args[args.indexOf(`--${name}`) + 1]
+const option = (name) => {
+  const i = args.indexOf(`--${name}`)
+  return i === -1 ? undefined : args[i + 1]
+}
 
 const templateName = option('template') ?? 'hello_world'
 const template = templateName === 'hello_world' ? HELLO_WORLD : WHATSAPP_TEMPLATES[templateName]
