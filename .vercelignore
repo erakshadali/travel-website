@@ -1,0 +1,7 @@
+audit-out
+audit-results.json
+audit-shots
+dist-baseline
+node_modules
+scripts
+/server

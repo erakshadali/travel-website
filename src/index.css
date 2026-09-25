@@ -1,0 +1,129 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #0A0A0C;
+  --color-ink-2: #111114;
+  --color-ink-3: #18181C;
+  --color-gold: #C9A96E;
+  --color-gold-light: #E6D3A3;
+  --color-gold-dark: #8C6D3F;
+  --color-ivory: #F3EFE6;
+  --color-muted: #9E998F;
+
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+
+  --ease-lux: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@layer base {
+  /* Declare the site as natively dark so forced-dark modes (e.g. Samsung Internet) leave colors alone */
+  :root { color-scheme: dark; }
+  html { scroll-behavior: smooth; }
+  body {
+    @apply bg-ink font-sans text-ivory antialiased;
+    font-weight: 300;
+    line-height: 1.75;
+  }
+  /* Safety net only, added after fixing every overflow at its source (see scripts/audit.mjs).
+     clip (unlike hidden) does not create a scroll container, so position: sticky keeps working. */
+  html, body { overflow-x: clip; }
+  /* Subtle film grain over the whole page */
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 70;
+    pointer-events: none;
+    opacity: 0.045;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  h1, h2, h3, h4 { @apply font-serif; line-height: 1.12; letter-spacing: -0.005em; }
+  h1, h2 { font-weight: 400; }
+  h3, h4 { font-weight: 500; }
+  p { line-height: 1.8; }
+  strong, b { font-weight: 500; }
+  ::selection { background: #C9A96E; color: #0A0A0C; }
+  :focus-visible { outline: 1px solid #E6D3A3; outline-offset: 4px; border-radius: 4px; }
+  input, select, textarea { color-scheme: dark; }
+  /* Fieldsets default to min-width: min-content, which lets long <select> options widen the page */
+  fieldset { min-width: 0; }
+}
+
+@layer components {
+  .container-lux { @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-10; }
+
+  /* Gold accent text: a solid color, never background-clip gradients.
+     Forced-dark modes (e.g. Samsung Internet) darken gradient fills, which turned gold text brown. */
+  .text-champagne { color: #E6D3A3; }
+  /* Solid champagne fill for badges, progress bars and icons (same reason: no gradient images) */
+  .bg-champagne { background-color: #D8BF8A; }
+
+  .glass {
+    background: rgba(255, 255, 255, 0.025);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(201, 169, 110, 0.14);
+  }
+
+  /* Buttons: one family, two variants */
+  .btn-gold,
+  .btn-outline {
+    @apply inline-flex cursor-pointer items-center justify-center gap-2.5 rounded-full px-8 py-3.5 text-[12.5px] font-normal tracking-[0.16em] uppercase;
+    transition: background-color 0.6s var(--ease-lux), border-color 0.6s var(--ease-lux), color 0.6s var(--ease-lux), box-shadow 0.6s var(--ease-lux), filter 0.6s var(--ease-lux);
+  }
+  .btn-gold {
+    color: #0A0A0C;
+    background-color: #D8BF8A;
+    border: 1px solid transparent;
+  }
+  .btn-gold:hover { background-color: #E6D3A3; box-shadow: 0 10px 30px -14px rgba(201, 169, 110, 0.55); }
+  .btn-outline {
+    color: #E6D3A3;
+    border: 1px solid rgba(201, 169, 110, 0.45);
+    background: transparent;
+  }
+  .btn-outline:hover { border-color: #C9A96E; background: rgba(201, 169, 110, 0.08); box-shadow: 0 10px 30px -18px rgba(201, 169, 110, 0.45); }
+  .btn-gold:disabled, .btn-outline:disabled { opacity: 0.45; cursor: not-allowed; filter: none; box-shadow: none; }
+  .btn-sm { @apply min-h-11 px-5 py-2.5 text-[11px]; }
+
+  .input-lux {
+    @apply w-full max-w-full min-w-0 rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 font-light text-ivory outline-none placeholder:text-muted/60;
+    transition: border-color 0.5s var(--ease-lux), background-color 0.5s var(--ease-lux);
+  }
+  .input-lux:focus { border-color: rgba(201, 169, 110, 0.6); background: rgba(255, 255, 255, 0.05); }
+  .label-lux { @apply mb-2 block text-[11px] font-normal tracking-[0.2em] text-muted uppercase; }
+
+  .eyebrow { @apply text-[11px] font-normal tracking-[0.4em] text-gold uppercase; }
+
+  /* Thin gold rule used between sections: solid color, faded at the ends with a mask */
+  .divider-gold {
+    @apply mx-auto h-px w-full max-w-7xl;
+    background-color: rgba(201, 169, 110, 0.7);
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 25%, #000 75%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 25%, #000 75%, transparent);
+  }
+
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { scrollbar-width: none; }
+}
+
+@keyframes kenburns {
+  0% { transform: scale(1) translate(0, 0); }
+  100% { transform: scale(1.1) translate(-1.5%, -1.5%); }
+}
+.animate-kenburns { animation: kenburns 18s ease-in-out infinite alternate; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}
+
+@keyframes fadein {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* Phones (portrait, or landscape = touch + short screen): body copy in text-sm goes from 14px to 15px */
+@media (max-width: 639px), (pointer: coarse) and (max-height: 500px) {
+  :root { --text-sm: 0.9375rem; }
+}
