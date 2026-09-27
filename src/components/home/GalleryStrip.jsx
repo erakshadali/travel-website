@@ -1,44 +1,43 @@
-import { motion, useScroll, useTransform } from 'framer-motion'
-import { useRef, useState } from 'react'
 import { galleryImages } from '../../data/data'
-import Lightbox from '../ui/Lightbox'
-import SectionHeading from '../ui/SectionHeading'
+import Reveal from '../ui/Reveal'
 
-// Two rows that drift in opposite directions as you scroll.
+// A curated 6-photo subset of the full gallery, arranged as a bento grid.
+// [image index in galleryImages, caption title, caption subtitle, grid span]
+const cells = [
+  { i: 0, title: 'Dubai', subtitle: 'Skyline icons & golden dunes', span: 'col-span-2 row-span-2' },
+  { i: 1, title: 'Maldives', span: 'col-span-1 row-span-1' },
+  { i: 2, title: 'Paris', span: 'col-span-1 row-span-1' },
+  { i: 3, title: 'Bali', subtitle: 'Temples & rice terraces', span: 'col-span-2 row-span-1' },
+  { i: 4, title: 'Switzerland', span: 'col-span-1 row-span-2' },
+  { i: 6, title: 'Santorini', subtitle: 'Whitewashed cliffs at dusk', span: 'col-span-2 row-span-1' },
+]
+
 export default function GalleryStrip() {
-  const ref = useRef(null)
-  const [open, setOpen] = useState(null)
-  const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] })
-  const x1 = useTransform(scrollYProgress, [0, 1], ['0%', '-25%'])
-  const x2 = useTransform(scrollYProgress, [0, 1], ['-25%', '0%'])
-  const half = Math.ceil(galleryImages.length / 2)
-  const rows = [
-    { x: x1, items: galleryImages.slice(0, half), offset: 0 },
-    { x: x2, items: galleryImages.slice(half), offset: half },
-  ]
-
   return (
-    <section ref={ref} className="overflow-hidden py-20 md:py-36">
+    <section className="bg-linen py-16 sm:py-24 lg:py-28">
       <div className="container-lux">
-        <SectionHeading eyebrow="Gallery" title="Moments from the road" />
+        <Reveal className="mx-auto max-w-2xl text-center">
+          <p className="text-[11px] tracking-[0.3em] text-gold-dark uppercase sm:text-xs sm:tracking-[0.35em]">Gallery</p>
+          <h2 className="mt-3 font-serif text-[2rem] font-medium text-charcoal sm:text-5xl">Moments worth chasing</h2>
+          <div className="mx-auto mt-4 h-px w-10 bg-gold-dark" />
+        </Reveal>
+
+        <div className="mt-8 grid grid-cols-3 auto-rows-[110px] gap-1.5 sm:mt-12 sm:auto-rows-[140px] sm:gap-2 lg:auto-rows-[170px]">
+          {cells.map(({ i, title, subtitle, span }) => {
+            const g = galleryImages[i]
+            return (
+              <Reveal key={g.alt} className={`group relative overflow-hidden ${span}`}>
+                <img src={g.src} alt={g.alt} loading="lazy" className="h-full w-full object-cover transition duration-700 group-hover:scale-105" />
+                <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-ink/75 to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 p-3 text-white sm:p-4">
+                  <p className="font-serif text-base sm:text-xl">{title}</p>
+                  {subtitle && <p className="mt-0.5 hidden text-xs text-white/85 sm:block">{subtitle}</p>}
+                </div>
+              </Reveal>
+            )
+          })}
+        </div>
       </div>
-      <div className="space-y-4">
-        {rows.map((row, r) => (
-          <motion.ul key={r} style={{ x: row.x }} className="flex w-max gap-4">
-            {[...row.items, ...row.items].map((g, k) => {
-              const idx = row.offset + (k % row.items.length)
-              return (
-                <li key={k} className="h-48 w-72 shrink-0 overflow-hidden rounded-2xl border border-gold/15 sm:h-60 sm:w-96">
-                  <button onClick={() => setOpen(idx)} className="group h-full w-full" aria-label={`View photo: ${g.alt}`} tabIndex={k >= row.items.length ? -1 : 0}>
-                    <img src={g.src} alt={g.alt} loading="lazy" className="h-full w-full object-cover transition duration-1000 group-hover:scale-105" />
-                  </button>
-                </li>
-              )
-            })}
-          </motion.ul>
-        ))}
-      </div>
-      <Lightbox images={galleryImages} index={open} onClose={() => setOpen(null)} onChange={setOpen} />
     </section>
   )
 }

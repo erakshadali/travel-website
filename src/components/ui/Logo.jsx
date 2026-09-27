@@ -19,13 +19,15 @@ export function LogoMark({ size = 40 }) {
   )
 }
 
-export default function Logo() {
+// `light` renders the brand name in charcoal for use on light (paper/linen) backgrounds,
+// such as the light-theme Navbar. Everywhere else (dark pages, the dark Footer) omits it.
+export default function Logo({ light = false }) {
   return (
     <Link to="/" className="flex min-h-11 items-center gap-3" aria-label="Fatima Tours and Travels, home">
       <LogoMark />
       <span className="leading-none">
-        <span className="block font-serif text-xl tracking-wide text-ivory">Fatima</span>
-        <span className="block text-[10px] tracking-[0.3em] text-gold uppercase">Tours &amp; Travels</span>
+        <span className={`block font-serif text-xl tracking-wide ${light ? 'text-charcoal' : 'text-ivory'}`}>Fatima</span>
+        <span className={`block text-[10px] tracking-[0.3em] uppercase ${light ? 'text-gold-dark' : 'text-gold'}`}>Tours &amp; Travels</span>
       </span>
     </Link>
   )

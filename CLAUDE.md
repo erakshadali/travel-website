@@ -62,13 +62,35 @@ scripts/       audit.mjs (overflow/tap-target audit), section-shots.mjs, e2e-for
 
 ## Design rules (luxury, don't drift)
 - Background `#0A0A0C` + subtle grain. Text ivory `#F3EFE6`, muted `#9E998F`.
-- Gold: primary `#C9A96E`, light `#E6D3A3`, dark `#8C6D3F` (dark is unused; never for text).
+- Gold: primary `#C9A96E`, light `#E6D3A3`, dark `#8C6D3F` (dark is unused on dark backgrounds; never
+  for text there — low contrast. It *is* the primary accent/link color on the light theme below).
 - Gold text = solid `text-champagne` (#E6D3A3). NEVER use gradient text (background-clip) or gradient
   fills: Samsung Internet forced dark mode turns them brown. `color-scheme: dark` is set in HTML and CSS.
 - Headings: Cormorant Garamond, weight 400-500 only (no bold). Body/nav/buttons/filters: Inter, weight 300-400.
 - Buttons: `btn-gold` (solid champagne, dark text) and `btn-outline` (thin outline). No text-shadows, no heavy glows.
 - Motion: slow ease-out (0.6-0.8s, `cubic-bezier(0.16,1,0.3,1)`), no springs or bounces.
 - Photos: add/change only in `src/data/images.js`; check each image actually shows its subject.
+
+### Light theme (Navbar, Home) — mid-migration
+The Home page and the shared Navbar were rebuilt from a light/ivory design (source: a one-off Claude
+Design export, kept at `design-reference/` — gitignored, not deployed, reference only). Every other
+page is still the dark theme above; the dark Footer is unchanged and doubles as both themes' dark band.
+- Tokens (`src/index.css` `@theme`): paper `#FFFFFF`, linen `#F7F5F0`, charcoal `#1A1A1A`, stone `#5F5F5F`,
+  hairline `#E5E1D8`. Gold-dark `#8C6D3F` is the accent/link/price color here (good contrast on light bg).
+- Buttons are a parallel system, NOT `.btn-gold`/`.btn-outline`: `.btn-lt` (solid gold-dark, sharp `rounded-sm`
+  corners) and `.btn-lt-ghost` (white outline — only over a dark photo overlay, e.g. the hero). Secondary
+  links use `.link-sweep-lt` (gold-dark text, underline sweeps in on hover), never an outlined button on
+  a plain paper/linen background — this design has no such variant.
+- `Logo` takes a `light` prop (charcoal wordmark) for use on paper/linen backgrounds; omit it (the
+  default) on dark backgrounds — the mobile nav drawer stays dark-themed and must keep the default.
+- `SectionHeading`, `Reveal`, `DestinationCard`, `PackageCard`, `Stars`, `GoldDivider` etc. are shared
+  with still-dark pages (Destinations, Packages, About, Experiences...) — never restyle them in place
+  for the light theme. Home's light sections (`src/components/home/*`) either reuse theme-agnostic
+  pieces (`Reveal`) or roll their own light-styled markup inline; each section sets its own explicit
+  full-bleed background (`bg-paper`/`bg-linen`/`bg-ink`) since the global `body` background is still
+  dark for the untouched pages.
+- Extending the light theme to another page: give it the same explicit per-section backgrounds, use the
+  `-lt` button/link classes, and pass `light` to `Logo` only where the surrounding block is light.
 
 ## Responsive rules
 - Mobile first. Tap targets >= 44px; phone body text >= 15px; no fixed widths that break at 360px.

@@ -21,6 +21,9 @@ dist-*
 .DS_Store
 Thumbs.db
 
+# Design handoff from Claude Design (reference only, never shipped)
+design-reference
+
 # Output of the audit and browser test scripts
 audit-shots
 audit-out

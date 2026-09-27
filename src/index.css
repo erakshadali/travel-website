@@ -10,6 +10,13 @@
   --color-ivory: #F3EFE6;
   --color-muted: #9E998F;
 
+  /* Light theme (Navbar, Home — see "Light theme" in CLAUDE.md before using these elsewhere) */
+  --color-paper: #FFFFFF;
+  --color-linen: #F7F5F0;
+  --color-charcoal: #1A1A1A;
+  --color-stone: #5F5F5F;
+  --color-hairline: #E5E1D8;
+
   --font-serif: "Cormorant Garamond", Georgia, serif;
   --font-sans: "Inter", system-ui, sans-serif;
 
@@ -106,6 +113,35 @@
 
   .no-scrollbar::-webkit-scrollbar { display: none; }
   .no-scrollbar { scrollbar-width: none; }
+
+  /* --- Light theme (Navbar, Home) ---------------------------------------
+     A second, parallel button/link language for the light-theme sections:
+     sharp corners (2px) and gold-dark (#8C6D3F) instead of the dark theme's
+     rounded champagne pills. Kept separate from .btn-gold/.btn-outline so
+     the still-dark pages (everything except Home/Navbar) are untouched. */
+  .btn-lt,
+  .btn-lt-ghost {
+    @apply inline-flex cursor-pointer items-center justify-center gap-2.5 rounded-sm px-8 py-3.5 text-[12.5px] font-normal tracking-[0.16em] text-white uppercase;
+    transition: background-color 0.5s var(--ease-lux), border-color 0.5s var(--ease-lux), background 0.5s var(--ease-lux);
+  }
+  .btn-lt { background-color: #8C6D3F; border: 1px solid transparent; }
+  .btn-lt:hover { background-color: #6B5636; }
+  /* Ghost variant: for use over a dark photo overlay only (hero, CTA banner) — not on plain paper/linen backgrounds */
+  .btn-lt-ghost { background: transparent; border: 1px solid rgba(255, 255, 255, 0.6); }
+  .btn-lt-ghost:hover { background: rgba(255, 255, 255, 0.12); border-color: #fff; }
+  .btn-lt:disabled, .btn-lt-ghost:disabled { opacity: 0.5; cursor: not-allowed; }
+  .btn-lt-sm { @apply min-h-11 px-5 py-2.5 text-[11px]; }
+
+  /* Text link with a gold underline that sweeps in on hover, for the light theme */
+  .link-sweep-lt {
+    background-image: linear-gradient(#8C6D3F, #8C6D3F);
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    background-size: 0% 1px;
+    padding-bottom: 2px;
+    transition: background-size 0.4s var(--ease-lux);
+  }
+  .group:hover .link-sweep-lt, .link-sweep-lt:hover { background-size: 100% 1px; }
 }
 
 @keyframes kenburns {

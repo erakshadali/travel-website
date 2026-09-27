@@ -35,13 +35,15 @@ export default function Navbar() {
       <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-50 focus:rounded-full focus:bg-gold focus:px-4 focus:py-2 focus:text-ink">
         Skip to content
       </a>
+      {/* Light theme: always a solid paper bar (never transparent-over-photo), only the padding
+          eases in on scroll. See "Light theme" in CLAUDE.md before reusing this on a dark page. */}
       <div
-        className={`transition-all duration-700 ease-out ${
-          scrolled ? 'border-b border-gold/15 bg-ink/75 py-3 backdrop-blur-md' : 'bg-transparent py-6'
+        className={`border-b border-hairline bg-paper/95 backdrop-blur-md transition-all duration-700 ease-out ${
+          scrolled ? 'py-3 shadow-[0_1px_0_0_rgba(0,0,0,0.02)]' : 'py-5 sm:py-6'
         }`}
       >
         <nav className="container-lux flex items-center justify-between" aria-label="Main">
-          <Logo />
+          <Logo light />
 
           <ul className="hidden items-center gap-1 xl:flex">
             {navLinks.map((l) => (
@@ -50,7 +52,7 @@ export default function Navbar() {
                   to={l.to}
                   end={l.to === '/'}
                   className={({ isActive }) =>
-                    `relative px-3.5 py-2 text-[14px] font-light tracking-[0.05em] transition-colors duration-500 ${isActive ? 'text-gold-light' : 'text-ivory/75 hover:text-ivory'}`
+                    `relative px-3.5 py-2 text-[13px] tracking-[0.12em] uppercase transition-colors duration-500 ${isActive ? 'text-gold-dark' : 'text-charcoal/75 hover:text-charcoal'}`
                   }
                 >
                   {({ isActive }) => (
@@ -59,7 +61,7 @@ export default function Navbar() {
                       {isActive && (
                         <motion.span
                           layoutId="nav-underline"
-                          className="absolute inset-x-3.5 -bottom-0.5 h-px bg-gold/80"
+                          className="absolute inset-x-3.5 -bottom-0.5 h-px bg-gold-dark"
                         />
                       )}
                     </>
@@ -70,7 +72,7 @@ export default function Navbar() {
           </ul>
 
           <div className="flex items-center gap-3">
-            <Link to="/booking" className="btn-gold btn-sm hidden sm:inline-flex">
+            <Link to="/booking" className="btn-lt btn-lt-sm hidden sm:inline-flex">
               Book Now
             </Link>
             <button
@@ -78,7 +80,7 @@ export default function Navbar() {
               aria-label="Open menu"
               aria-expanded={open}
               aria-controls="mobile-menu"
-              className="grid h-11 w-11 place-items-center rounded-full glass text-gold-light xl:hidden"
+              className="grid h-11 w-11 place-items-center rounded-full border border-hairline text-charcoal transition hover:border-gold-dark/50 xl:hidden"
             >
               <Menu size={20} />
             </button>

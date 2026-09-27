@@ -102,6 +102,7 @@ export const images = {
   },
 
   heroes: {
+    home: photo(P.dubaiSkylineSunset, 1920),
     destinations: photo(P.maldivesAerial, 1920),
     packages: photo(P.infinityDeck, 1920),
     planner: photo(P.travelPlanning, 1920),
@@ -110,6 +111,13 @@ export const images = {
     aboutStory: photo(P.dubaiCamels, 1000),
     contact: photo(P.burjAlArabDay, 1920),
     newsletter: photo(P.beachSunrise, 1600),
+    offer: photo(P.cliffPoolResort, 1200),
+  },
+
+  // The two large feature cards on the Home page (see homeSpotlights in data.js)
+  spotlights: {
+    dubai: photo(P.dubaiSkylineNight, 1000),
+    maldives: photo(P.maldivesAerial, 1000),
   },
 
   gallery: [

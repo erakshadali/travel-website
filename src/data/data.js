@@ -9,13 +9,13 @@ export const site = {
   name: 'Fatima Tours and Travels',
   shortName: 'Fatima Travels',
   tagline: 'Journeys Crafted in Gold',
-  phone: '+971 50 000 0000',
+  phone: '+91 98200 00000',
   // WhatsApp number in international format, digits only (no +, spaces or dashes)
-  whatsapp: '971500000000',
+  whatsapp: '919820000000',
   whatsappMessage: "Hello Fatima Tours and Travels! I'd like to plan a trip.",
   email: 'hello@fatimatravels.com',
-  address: 'Office 1204, Business Bay Tower, Business Bay, Dubai, UAE',
-  hours: 'Mon – Sat, 9:00 AM – 8:00 PM',
+  address: 'Level 9, DLF Capital Point, Connaught Place, New Delhi, India',
+  hours: 'Mon – Sat, 9:00 AM – 8:00 PM IST',
   social: {
     instagram: 'https://instagram.com/',
     facebook: 'https://facebook.com/',
@@ -61,6 +61,7 @@ export const destinations = [
     lat: 25.2,
     lon: 55.27,
     image: images.destinations.dubai,
+    bestTime: 'Nov – Mar',
     blurb: 'Skyline icons, golden dunes and world-class shopping.',
   },
   {
@@ -74,6 +75,7 @@ export const destinations = [
     lat: 3.2,
     lon: 73.22,
     image: images.destinations.maldives,
+    bestTime: 'Dec – Apr',
     blurb: 'Overwater villas above endless turquoise lagoons.',
   },
   {
@@ -87,6 +89,7 @@ export const destinations = [
     lat: 48.85,
     lon: 2.35,
     image: images.destinations.paris,
+    bestTime: 'Apr – Jun',
     blurb: 'The city of light, haute cuisine and timeless romance.',
   },
   {
@@ -100,6 +103,7 @@ export const destinations = [
     lat: -8.34,
     lon: 115.09,
     image: images.destinations.bali,
+    bestTime: 'Apr – Oct',
     blurb: 'Temples, rice terraces and cliffside sunsets.',
   },
   {
@@ -113,6 +117,7 @@ export const destinations = [
     lat: 46.82,
     lon: 8.23,
     image: images.destinations.switzerland,
+    bestTime: 'Jun – Sep',
     blurb: 'Alpine peaks, glacier trains and lakeside chalets.',
   },
   {
@@ -126,6 +131,7 @@ export const destinations = [
     lat: 13.75,
     lon: 100.5,
     image: images.destinations.thailand,
+    bestTime: 'Nov – Feb',
     blurb: 'Island hopping, street food and golden temples.',
   },
   {
@@ -139,6 +145,7 @@ export const destinations = [
     lat: 36.39,
     lon: 25.46,
     image: images.destinations.santorini,
+    bestTime: 'Apr – Oct',
     blurb: 'Whitewashed villages over a volcanic caldera.',
   },
   {
@@ -152,6 +159,7 @@ export const destinations = [
     lat: 41.0,
     lon: 28.97,
     image: images.destinations.istanbul,
+    bestTime: 'Apr – Jun',
     blurb: 'Where two continents meet over the Bosphorus.',
   },
   {
@@ -165,6 +173,7 @@ export const destinations = [
     lat: 35.68,
     lon: 139.69,
     image: images.destinations.tokyo,
+    bestTime: 'Mar – May',
     blurb: 'Neon nights, serene shrines and legendary cuisine.',
   },
 ]
@@ -173,6 +182,20 @@ export const destinations = [
 export const globePoints = destinations.filter((d) =>
   ['dubai', 'maldives', 'paris', 'bali', 'switzerland', 'thailand'].includes(d.id),
 )
+
+// Illustrative flight times from the Delhi office, shown on the Home page "Fly With Confidence" band.
+export const routesFromIndia = [
+  { from: 'Delhi', to: 'Dubai', duration: '3h 30m' },
+  { from: 'Delhi', to: 'Maldives', duration: '5h 20m' },
+  { from: 'Delhi', to: 'Paris', duration: '9h 05m' },
+  { from: 'Delhi', to: 'Bali', duration: '8h 15m' },
+]
+
+// Two large feature cards on the Home page, between "How It Works" and "Routes from India".
+export const homeSpotlights = [
+  { destination: 'dubai', eyebrow: 'UAE & The Gulf', title: 'Discover Dubai', image: images.spotlights.dubai },
+  { destination: 'maldives', eyebrow: 'Indian Ocean', title: 'Discover Maldives', image: images.spotlights.maldives },
+]
 
 // ---------------------------------------------------------------------------
 // Packages
