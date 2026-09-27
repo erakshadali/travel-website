@@ -49,7 +49,7 @@ page.on('response', (res) => {
 
 async function open(path) {
   await page.goto(BASE + path, { waitUntil: 'networkidle' })
-  await page.locator('[aria-label^="Loading Fatima"]').waitFor({ state: 'detached', timeout: 15_000 })
+  await page.locator('[aria-label^="Loading Premium"]').waitFor({ state: 'detached', timeout: 15_000 })
 }
 const expectVisible = (locator, timeout = 20_000) => locator.waitFor({ state: 'visible', timeout })
 

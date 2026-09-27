@@ -13,7 +13,7 @@ export function LogoMark({ size = 40 }) {
       <ellipse cx="32" cy="32" rx="12" ry="29" fill="none" stroke="url(#logo-g)" strokeWidth="1" opacity="0.5" />
       <line x1="3" y1="32" x2="61" y2="32" stroke="url(#logo-g)" strokeWidth="1" opacity="0.5" />
       <text x="32" y="42" textAnchor="middle" fontFamily="Cormorant Garamond, Georgia, serif" fontSize="30" fontWeight="700" fill="url(#logo-g)">
-        F
+        P
       </text>
     </svg>
   )
@@ -23,10 +23,10 @@ export function LogoMark({ size = 40 }) {
 // such as the light-theme Navbar. Everywhere else (dark pages, the dark Footer) omits it.
 export default function Logo({ light = false }) {
   return (
-    <Link to="/" className="flex min-h-11 items-center gap-3" aria-label="Fatima Tours and Travels, home">
+    <Link to="/" className="flex min-h-11 items-center gap-3" aria-label="Premium Tours and Travels, home">
       <LogoMark />
       <span className="leading-none">
-        <span className={`block font-serif text-xl tracking-wide ${light ? 'text-charcoal' : 'text-ivory'}`}>Fatima</span>
+        <span className={`block font-serif text-xl tracking-wide ${light ? 'text-charcoal' : 'text-ivory'}`}>Premium</span>
         <span className={`block text-[10px] tracking-[0.3em] uppercase ${light ? 'text-gold-dark' : 'text-gold'}`}>Tours &amp; Travels</span>
       </span>
     </Link>

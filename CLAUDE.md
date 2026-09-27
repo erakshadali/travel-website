@@ -1,9 +1,9 @@
-# Fatima Tours and Travels
+# Premium Tours and Travels
 
 Luxury travel agency website. Pages: Home, Destinations, Packages, Package detail,
 Experiences, Trip Planner, Booking, About, Contact, 404. The four forms (Booking, Trip Planner, Contact,
 Newsletter) POST to the backend in `server/` (see below) when `VITE_API_URL` is set, and are simulated otherwise.
-Live: https://fatima-travels-one.vercel.app (Vercel project `fatima-travels`).
+Live: https://premium-travels-one.vercel.app (Vercel project `premium-travels`; renamed from `fatima-travels`, see git history).
 **The deployed version is OLD**: forms are simulated, there is no `/admin`, and no backend is deployed yet. Everything below runs locally.
 
 ## Status: what is done, what is left
@@ -112,7 +112,7 @@ E2E_ADMIN_EMAIL=... E2E_ADMIN_PASSWORD=... node scripts/e2e-admin.mjs http://loc
 ## Deployment (Vercel)
 1. `npm run build` must pass, and the audit must show 0 overflow.
 2. `vercel deploy --prod --yes` from the project root (already linked; `vercel.json` rewrites all routes to index.html).
-3. Verify: `curl -s https://fatima-travels-one.vercel.app/` returns the new asset hashes; check /booking and /contact return 200.
+3. Verify: `curl -s https://premium-travels-one.vercel.app/` returns the new asset hashes; check /booking and /contact return 200.
 - `.vercelignore` keeps `scripts`, `audit-*`, `dist-baseline` and `node_modules` out of uploads.
 - Vercel is not connected to GitHub: nothing is auto-deployed. Deploy manually with the CLI after every change.
 

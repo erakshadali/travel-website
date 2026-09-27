@@ -8,7 +8,7 @@ export default function Loader() {
       initial={{ opacity: 1 }}
       exit={{ opacity: 0, transition: { duration: 0.7, ease: 'easeInOut' } }}
       role="status"
-      aria-label="Loading Fatima Tours and Travels"
+      aria-label="Loading Premium Tours and Travels"
     >
       <svg width="120" height="120" viewBox="0 0 64 64" aria-hidden>
         <defs>
@@ -30,7 +30,7 @@ export default function Loader() {
           initial={{ opacity: 0, scale: 0.6 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.6, duration: 0.6 }}
           style={{ transformOrigin: 'center' }}
         >
-          F
+          P
         </motion.text>
       </svg>
       <motion.p
@@ -39,7 +39,7 @@ export default function Loader() {
         transition={{ delay: 0.5, duration: 1.1 }}
         className="mt-6 font-serif text-2xl text-ivory uppercase"
       >
-        Fatima
+        Premium
       </motion.p>
       <motion.p
         initial={{ opacity: 0 }}

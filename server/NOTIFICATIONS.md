@@ -27,7 +27,7 @@ Messages that were only logged never block real ones: switch to `live` and the s
 ## 1. Resend (email)
 
 1. Sign up at <https://resend.com> **with the email address you want test emails to arrive at** (see the limits below), and confirm it.
-2. Dashboard > **API Keys** > **Create API Key**. Name: `fatima-server`. Permission: **Sending access**. Domain: all domains. Click **Add**.
+2. Dashboard > **API Keys** > **Create API Key**. Name: `premium-server`. Permission: **Sending access**. Domain: all domains. Click **Add**.
 3. Copy the key now (it starts with `re_` and is shown only once).
 4. Put it in `server/.env` as `RESEND_API_KEY=...`.
 
@@ -38,7 +38,7 @@ Messages that were only logged never block real ones: switch to `live` and the s
 - Test emails from `resend.dev` may land in spam. Look there first.
 
 **When you have a domain:** Resend > **Domains** > **Add Domain** > add the DNS records it shows (at the company you bought the domain from) > **Verify**.
-Then set `EMAIL_FROM="Fatima Tours and Travels <bookings@yourdomain.com>"` in `.env`. Clients can now receive emails. The free plan allows 3 domains.
+Then set `EMAIL_FROM="Premium Tours and Travels <bookings@yourdomain.com>"` in `.env`. Clients can now receive emails. The free plan allows 3 domains.
 
 ## 2. WhatsApp Cloud API (Meta)
 
@@ -47,7 +47,7 @@ Meta changes its screens now and then; if a button has moved, the official guide
 
 **A. Create the app and get the test number**
 1. Go to <https://developers.facebook.com> > **My Apps** > **Create App**.
-2. Choose the use case **Connect with customers through WhatsApp**. App name: `Fatima Travels`. Pick (or create) a Business portfolio when asked. Click **Create app**.
+2. Choose the use case **Connect with customers through WhatsApp**. App name: `Premium Travels`. Pick (or create) a Business portfolio when asked. Click **Create app**.
 3. In the app dashboard open **WhatsApp** > **API Setup** (button: **Start using the API**). Choose or create a WhatsApp Business Account when asked.
 4. On that page, under **From**, Meta gives you a **test phone number**. Copy the **Phone number ID** (a long number, digits only) into `.env` as `WHATSAPP_PHONE_NUMBER_ID`.
    It is not the test number itself and not the "WhatsApp Business Account ID" shown next to it.
@@ -61,7 +61,7 @@ Meta changes its screens now and then; if a button has moved, the official guide
 - *Temporary token* (for a first try): on the API Setup page click **Generate access token**. It expires after about 24 hours. Put it in `.env` as `WHATSAPP_ACCESS_TOKEN`.
 - *Permanent token* (what you actually want):
   1. Go to <https://business.facebook.com> > **Business settings** (gear icon).
-  2. **Users** > **System users** > **Add**. Name: `fatima-server`. Role: **Admin**. Click **Create system user**.
+  2. **Users** > **System users** > **Add**. Name: `premium-server`. Role: **Admin**. Click **Create system user**.
   3. Select that system user > **Add assets** > **Apps** > choose your app > switch on **Manage app** (full control) > **Save**.
   4. Click **Generate token**, select your app, set **Token expiration** to **Never** (if you are offered a choice), tick **whatsapp_business_messaging**, **whatsapp_business_management** and **business_management**, and click **Generate token**.
   5. Copy the token (long, starts with `EAA`) into `.env` as `WHATSAPP_ACCESS_TOKEN`. Meta shows it once.
@@ -73,7 +73,7 @@ Meta changes its screens now and then; if a button has moved, the official guide
 2. Category: **Utility**. Name: `booking_confirmation` (exactly). Language: **English**.
 3. Body, pasted exactly (it is also in `src/notify/templates.js`):
 
-   > Hello {{1}}, thank you for booking with Fatima Tours and Travels. Your booking reference is {{2}} for {{3}}, departing {{4}}. Our team is reviewing your request and will confirm shortly. We will send your trip updates here.
+   > Hello {{1}}, thank you for booking with Premium Tours and Travels. Your booking reference is {{2}} for {{3}}, departing {{4}}. Our team is reviewing your request and will confirm shortly. We will send your trip updates here.
 
 4. When asked for sample values: `Aisha`, `FT-AB12CDE`, `Dubai Luxe Escape`, `12 Oct 2026`.
 5. Submit. Approval usually takes minutes, sometimes up to a day. Wait until the status is **Active**.

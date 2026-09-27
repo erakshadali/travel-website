@@ -1,4 +1,4 @@
-# Fatima Travels API
+# Premium Travels API
 
 Node.js + Express + MongoDB (Mongoose). ESM, Node 20+.
 

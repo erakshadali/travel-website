@@ -16,7 +16,7 @@ describe('loadConfig', () => {
     assert.equal(c.adminEmail, 'owner@example.com')
     assert.equal(c.port, 4000)
     assert.equal(c.publicRateLimit, 10)
-    assert.deepEqual(c.frontendOrigins, ['http://localhost:5180', 'https://fatima-travels-one.vercel.app'])
+    assert.deepEqual(c.frontendOrigins, ['http://localhost:5180', 'https://premium-travels-one.vercel.app'])
   })
 
   test('refuses to start while MONGODB_URI still has the <db_password> placeholder', () => {
@@ -55,7 +55,7 @@ describe('notification settings', () => {
     const { notify } = loadConfig(valid())
     assert.equal(notify.mode, 'log')
     assert.equal(notify.agencyEmail, undefined)
-    assert.equal(notify.email.from, 'Fatima Tours and Travels <onboarding@resend.dev>')
+    assert.equal(notify.email.from, 'Premium Tours and Travels <onboarding@resend.dev>')
     assert.equal(notify.whatsapp.apiVersion, 'v23.0')
     assert.equal(notify.whatsapp.templateLanguage, 'en')
   })

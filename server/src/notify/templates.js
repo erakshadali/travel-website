@@ -11,7 +11,7 @@ export const WHATSAPP_TEMPLATES = {
     name: 'booking_confirmation',
     category: 'UTILITY',
     body:
-      'Hello {{1}}, thank you for booking with Fatima Tours and Travels. Your booking reference is {{2}} for {{3}}, departing {{4}}. ' +
+      'Hello {{1}}, thank you for booking with Premium Tours and Travels. Your booking reference is {{2}} for {{3}}, departing {{4}}. ' +
       'Our team is reviewing your request and will confirm shortly. We will send your trip updates here.',
     examples: ['Aisha', 'FT-AB12CDE', 'Dubai Luxe Escape', '12 Oct 2026'],
   },

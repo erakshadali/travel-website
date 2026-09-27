@@ -26,7 +26,7 @@ console.log(describeNotifications(config.notify))
 
 const { notifications } = createNotificationSystem(config)
 const server = createApp(config, { notifications }).listen(config.port, () => {
-  console.log(`Fatima Travels API listening on :${config.port} (${config.env})`)
+  console.log(`Premium Travels API listening on :${config.port} (${config.env})`)
 })
 // Node closes idle keep-alive connections after 5 s by default. Browsers and proxies (Render's) reuse
 // them for longer, and a request sent on a connection that has just been closed fails as a network error.

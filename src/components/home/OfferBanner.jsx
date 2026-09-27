@@ -16,7 +16,7 @@ export default function OfferBanner() {
             />
           </div>
           <div className="flex flex-col justify-center bg-linen p-7 sm:p-14">
-            <p className="text-[11px] tracking-[0.25em] text-gold-dark uppercase sm:text-xs sm:tracking-[0.3em]">Fatima Signature Offer</p>
+            <p className="text-[11px] tracking-[0.25em] text-gold-dark uppercase sm:text-xs sm:tracking-[0.3em]">Premium Signature Offer</p>
             <h3 className="mt-3 font-serif text-[26px] font-medium text-charcoal sm:text-[34px]">Early Bird Savings on 2027 Journeys</h3>
             <div className="mt-3.5 h-px w-8 bg-gold-dark" />
             <p className="mt-4 max-w-sm text-[15px] leading-relaxed text-stone">

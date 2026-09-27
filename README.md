@@ -1,9 +1,9 @@
-# Fatima Tours and Travels
+# Premium Tours and Travels
 
 Luxury travel agency website built with React, Vite, Tailwind CSS, Framer Motion and React Three Fiber.
 
-**Live site:** https://fatima-travels-one.vercel.app
-**Admin panel:** https://fatima-travels-one.vercel.app/admin — no backend is deployed yet, so this currently
+**Live site:** https://premium-travels-one.vercel.app
+**Admin panel:** https://premium-travels-one.vercel.app/admin — no backend is deployed yet, so this currently
 shows a "no backend configured" notice instead of the login form (see `server/README.md` to deploy it).
 
 ## Run it

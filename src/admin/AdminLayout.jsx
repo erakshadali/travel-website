@@ -29,10 +29,10 @@ export default function AdminLayout({ children }) {
     <div className="min-h-screen">
       <header className="sticky top-0 z-40 border-b border-white/10 bg-ink/90 backdrop-blur">
         <div className="container-lux flex items-center justify-between gap-4 py-2">
-          <Link to="/admin" className="flex min-h-11 items-center gap-3" aria-label="Fatima admin, bookings">
+          <Link to="/admin" className="flex min-h-11 items-center gap-3" aria-label="Premium admin, bookings">
             <LogoMark size={34} />
             <span className="leading-none">
-              <span className="block font-serif text-xl tracking-wide text-ivory">Fatima</span>
+              <span className="block font-serif text-xl tracking-wide text-ivory">Premium</span>
               <span className="block text-[10px] tracking-[0.3em] text-gold uppercase">Admin</span>
             </span>
           </Link>

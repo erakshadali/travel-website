@@ -6,14 +6,14 @@ import { images } from './images'
 // Agency info — edit these to your real details
 // ---------------------------------------------------------------------------
 export const site = {
-  name: 'Fatima Tours and Travels',
-  shortName: 'Fatima Travels',
+  name: 'Premium Tours and Travels',
+  shortName: 'Premium Travels',
   tagline: 'Journeys Crafted in Gold',
   phone: '+91 98200 00000',
   // WhatsApp number in international format, digits only (no +, spaces or dashes)
   whatsapp: '919820000000',
-  whatsappMessage: "Hello Fatima Tours and Travels! I'd like to plan a trip.",
-  email: 'hello@fatimatravels.com',
+  whatsappMessage: "Hello Premium Tours and Travels! I'd like to plan a trip.",
+  email: 'hello@premiumtravels.com',
   address: 'Level 9, DLF Capital Point, Connaught Place, New Delhi, India',
   hours: 'Mon – Sat, 9:00 AM – 8:00 PM IST',
   social: {
@@ -428,7 +428,7 @@ export const stats = [
 ]
 
 export const testimonials = [
-  { name: 'Aisha Rahman', trip: 'Maldives Overwater Romance', avatar: images.people.woman1(200), rating: 5, text: 'Every detail was perfect — the seaplane, the villa, the private sandbank dinner. Fatima Travels made our honeymoon unforgettable.' },
+  { name: 'Aisha Rahman', trip: 'Maldives Overwater Romance', avatar: images.people.woman1(200), rating: 5, text: 'Every detail was perfect — the seaplane, the villa, the private sandbank dinner. Premium Travels made our honeymoon unforgettable.' },
   { name: 'Omar Siddiqui', trip: 'Dubai Luxe Escape', avatar: images.people.man1(200), rating: 5, text: 'From visa to desert safari, everything was handled flawlessly. Their WhatsApp support was available at any hour.' },
   { name: 'Sophie Laurent', trip: 'Swiss Alpine Grandeur', avatar: images.people.woman2(200), rating: 5, text: 'First-class trains, stunning hotels and a perfectly paced itinerary. Truly a luxury experience.' },
   { name: 'Daniel Brooks', trip: 'Thailand Island Hopper', avatar: images.people.man2(200), rating: 5, text: 'Our kids still talk about Phi Phi. Great value and incredibly well organised.' },

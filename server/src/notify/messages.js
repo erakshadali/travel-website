@@ -2,7 +2,7 @@
 // Everything that came from a visitor (names, requests...) is HTML-escaped before it goes into an email.
 import { WHATSAPP_TEMPLATES } from './templates.js'
 
-export const AGENCY_NAME = 'Fatima Tours and Travels'
+export const AGENCY_NAME = 'Premium Tours and Travels'
 
 const HTML_ESCAPES = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }
 export const escapeHtml = (value) => String(value ?? '').replace(/[&<>"']/g, (c) => HTML_ESCAPES[c])

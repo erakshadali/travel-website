@@ -126,7 +126,7 @@ describe('WhatsApp template', () => {
   })
   test('renders the sentence the customer will read', () => {
     const text = renderTemplate(WHATSAPP_TEMPLATES.booking_confirmation, clientWhatsAppParams(booking()))
-    assert.match(text, /^Hello Aisha, thank you for booking with Fatima Tours and Travels\. Your booking reference is FT-AB12CDE for Dubai Luxe Escape, departing 12 Oct 2026\./)
+    assert.match(text, /^Hello Aisha, thank you for booking with Premium Tours and Travels\. Your booking reference is FT-AB12CDE for Dubai Luxe Escape, departing 12 Oct 2026\./)
     assert.doesNotMatch(text, /\{\{/)
   })
   test('follows the WhatsApp template rules: variables are numbered, do not start or end the text, and examples match', () => {
