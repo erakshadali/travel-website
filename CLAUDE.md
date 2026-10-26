@@ -40,6 +40,15 @@ Left, in this order:
    plus anything with an `@example.test` email); rotate secrets that were pasted into chat sessions (Atlas DB user password, the admin password via
    `npm run hash-password`, any Resend/Meta key); add a custom domain in Vercel and verify it in Resend.
 
+## Rihla demo deployment (Vercel Services: frontend + backend in ONE project)
+- Live demo: https://rihla-demo-ten.vercel.app (Vercel project `rihla-demo`). Admin: /admin/login, button "Try the demo admin" (demo@example.test, public throwaway password).
+- This folder's `.vercel` link now points at `rihla-demo`. The OLD live site is project `premium-travels` (projectId prj_dwKifhFgWW509btLVkTRzJjhai7C, orgId team_dFPMvK4myETpOibbYnIvIPzb): relink with `vercel link --project premium-travels --yes` before deploying to it. `vercel link` appends `.vercel`/`.env*` to .gitignore: revert that (`.env*` would hide `.env.example`).
+- `vercel.json` `services`: frontend (Vite) + backend (`server/api/index.js`, the Express app as a Vercel function). `VITE_API_URL=/api` (same origin: no CORS, no sleeping server; this replaces the Render plan for the demo).
+- Backend env (production) is set in the Vercel project: own `JWT_SECRET`, `ADMIN_EMAIL`/`ADMIN_PASSWORD_HASH` of the demo account, `NOTIFY_MODE=log` (no email/WhatsApp keys on the demo: it can never message anyone), `MONGODB_URI` = same Atlas cluster but database `rihla-demo` (never the real `fatima-tours`).
+- Frontend build-time: `VITE_DEMO_ADMIN_EMAIL` / `VITE_DEMO_ADMIN_PASSWORD` make the login page show the demo button (public on purpose).
+- Reseed demo data: from `server/` run `npm run seed` with `MONGODB_URI` set to the rihla-demo URI (seed only replaces @example.test bookings). Deploy: `vercel deploy --prod --yes` from the root.
+- Verified live: /api/health, all 4 forms (e2e-forms 5/5), admin panel (e2e-admin 21/21).
+
 ## Tech stack
 React 19 + Vite, Tailwind CSS v4 (theme in `src/index.css` `@theme`, no tailwind.config), Framer Motion,
 React Three Fiber + drei (globe), React Router, Lucide icons. Playwright is dev-only (responsive audit).
