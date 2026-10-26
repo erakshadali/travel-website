@@ -1,4 +1,4 @@
-# Premium Tours and Travels
+# Rihla Travel (white-label demo for Middle East tour operators; formerly Premium Tours and Travels)
 
 Luxury travel agency website. Pages: Home, Destinations, Packages, Package detail,
 Experiences, Trip Planner, Booking, About, Contact, 404. The four forms (Booking, Trip Planner, Contact,

@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { ArrowRight, Sparkles } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { site } from '../../data/data'
 import { images } from '../../data/images'
 
 const fade = (delay) => ({
@@ -33,7 +34,7 @@ export default function Hero() {
             <span className="text-champagne italic">in gold.</span>
           </motion.h1>
           <motion.p {...fade(0.3)} className="mt-4 text-sm leading-relaxed text-white/85 sm:mt-6 sm:max-w-md sm:text-[17px]">
-            From the dunes of Dubai to the lagoons of the Maldives, Premium Tours and Travels designs bespoke escapes for travellers who expect the extraordinary.
+            From the dunes of Dubai to the mountains of Ras Al Khaimah, {site.name} designs bespoke escapes for travellers who expect the extraordinary.
           </motion.p>
           <motion.div {...fade(0.4)} className="mt-6 flex flex-col gap-2.5 sm:mt-8 sm:flex-row sm:gap-4">
             <Link to="/planner" className="btn-lt">

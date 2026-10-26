@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { packages } from '../../data/data'
 import Reveal from '../ui/Reveal'
+import { money } from '../../data/money'
 
 export default function PopularPackages() {
   const popular = [...packages].sort((a, b) => b.rating - a.rating).slice(0, 3)
@@ -31,7 +32,7 @@ export default function PopularPackages() {
                   <p className="mt-3.5 text-[11px] tracking-[0.15em] text-stone uppercase">
                     {p.days} Days · {p.nights} Nights · {p.type}
                   </p>
-                  <p className="mt-3 font-serif text-lg font-medium text-gold-dark">From ${p.price.toLocaleString()}</p>
+                  <p className="mt-3 font-serif text-lg font-medium text-gold-dark">From {money(p.price)}</p>
                   <span className="link-sweep-lt mt-3.5 inline-block text-[11px] tracking-[0.15em] text-gold-dark uppercase">View Itinerary</span>
                 </div>
               </Link>

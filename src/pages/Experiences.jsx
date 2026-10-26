@@ -7,6 +7,7 @@ import Reveal from '../components/ui/Reveal'
 import SectionHeading from '../components/ui/SectionHeading'
 import { experiences, galleryImages, whatsappLink } from '../data/data'
 import useDocumentTitle from '../hooks/useDocumentTitle'
+import { money } from '../data/money'
 
 const SLIDE_MS = 5000
 
@@ -53,7 +54,7 @@ function CinematicHero() {
         </AnimatePresence>
         <div className="mt-8 flex flex-wrap gap-3">
           <a href="#experience-list" className="btn-gold">Discover experiences</a>
-          <Link to="/planner" className="btn-outline">Plan a trip</Link>
+          <Link to="/planner" className="btn-outline max-sm:hidden">Plan a trip</Link>
         </div>
       </div>
     </section>
@@ -73,9 +74,9 @@ export default function Experiences() {
         <div className="space-y-20">
           {experiences.map((e, i) => (
             <div key={e.id} className={`grid items-center gap-8 lg:grid-cols-2 lg:gap-16 ${i % 2 ? 'lg:[&>*:first-child]:order-2' : ''}`}>
-              <Reveal direction={i % 2 ? 'left' : 'right'} className="group relative overflow-hidden rounded-[2rem] border border-gold/20">
-                <img src={e.image} alt={`${e.title} in ${e.location}`} loading="lazy" className="aspect-[4/3] w-full object-cover transition duration-1000 group-hover:scale-105" />
-                <span className="absolute top-5 left-5 rounded-full glass px-4 py-1.5 text-xs text-gold-light">0{i + 1}</span>
+              <Reveal direction={i % 2 ? 'left' : 'right'} className="group relative overflow-hidden rounded-[2rem] border border-gold/20 max-sm:mx-2 max-sm:rounded-t-[999px] max-sm:outline max-sm:outline-1 max-sm:outline-offset-8 max-sm:outline-gold/30">
+                <img src={e.image} alt={`${e.title} in ${e.location}`} loading="lazy" className="aspect-[4/3] w-full object-cover transition duration-1000 group-hover:scale-105 max-sm:aspect-[3/4]" />
+                <span className="absolute top-5 left-5 rounded-full glass px-4 py-1.5 text-xs text-gold-light max-sm:top-auto max-sm:bottom-5 max-sm:left-1/2 max-sm:-translate-x-1/2">0{i + 1}</span>
               </Reveal>
               <Reveal direction={i % 2 ? 'right' : 'left'} delay={0.1}>
                 <p className="flex items-center gap-2 text-xs tracking-[0.25em] text-gold uppercase"><MapPin size={12} aria-hidden /> {e.location}</p>
@@ -88,7 +89,7 @@ export default function Experiences() {
                   </div>
                   <div>
                     <p className="text-xs tracking-widest text-muted uppercase">From</p>
-                    <p className="mt-1 font-serif text-3xl text-champagne">${e.price}</p>
+                    <p className="mt-1 font-serif text-3xl text-champagne">{money(e.price)}</p>
                   </div>
                 </div>
                 <a href={whatsappLink(`Hello! I'd like to book the ${e.title} experience (${e.location}).`)} target="_blank" rel="noopener noreferrer" className="btn-gold mt-8">

@@ -113,8 +113,8 @@ const pages = [
   ['Destinations', '/destinations'],
   ['Packages', '/packages'],
   ['Package: Dubai', '/packages/dubai-luxe-escape'],
-  ['Package: Swiss', '/packages/swiss-alpine-grandeur'],
-  ['Package: Maldives', '/packages/maldives-overwater-romance'],
+  ['Package: Grand Tour', '/packages/emirates-grand-tour'],
+  ['Package: Abu Dhabi', '/packages/abu-dhabi-heritage'],
   ['Experiences', '/experiences'],
   ['About', '/about'],
   ['Contact', '/contact'],
@@ -125,7 +125,7 @@ async function plannerFlow(page, record) {
   await open(page, '/planner')
   const cont = page.getByRole('button', { name: /continue|review plan/i })
   await record('Planner step 1 (destination)')
-  await page.getByRole('button', { name: 'Bali', exact: false }).first().click()
+  await page.getByRole('button', { name: 'Abu Dhabi', exact: false }).first().click()
   await cont.click(); await page.waitForTimeout(700)
   await record('Planner step 2 (dates)')
   await page.getByText('My dates are flexible').click()

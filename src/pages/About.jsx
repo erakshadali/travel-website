@@ -4,7 +4,7 @@ import Counter from '../components/ui/Counter'
 import PageHero from '../components/ui/PageHero'
 import Reveal from '../components/ui/Reveal'
 import SectionHeading from '../components/ui/SectionHeading'
-import { stats, team } from '../data/data'
+import { site, stats, team } from '../data/data'
 import { images } from '../data/images'
 import useDocumentTitle from '../hooks/useDocumentTitle'
 
@@ -28,7 +28,7 @@ export default function About() {
       <PageHero
         eyebrow="About Us"
         title={<>A family passion, <span className="text-champagne italic">a world of journeys.</span></>}
-        subtitle="For fifteen years, Premium Tours and Travels has turned travel dreams into effortless, golden memories."
+        subtitle={`For fifteen years, ${site.name} has turned travel dreams into effortless, golden memories.`}
         image={images.heroes.about}
       />
 
@@ -45,10 +45,10 @@ export default function About() {
           <h2 className="mt-4 text-4xl leading-tight sm:text-5xl">Born from a love of the journey itself</h2>
           <div className="mt-6 space-y-4 leading-relaxed text-muted">
             <p>
-              Premium Tours and Travels began in 2011 with a simple belief: that travel should feel as extraordinary as the destination. What started as a small desk arranging visas and flights for friends and family has grown into a full-service luxury travel house.
+              {site.name} began in 2011 with a simple belief: that travel should feel as extraordinary as the destination. What started as a small desk arranging visas and flights for friends and family has grown into a full-service luxury travel house.
             </p>
             <p>
-              Today our specialists design honeymoons in the Maldives, family adventures in Thailand, alpine journeys through Switzerland and much more, each one crafted with the same personal attention we gave our very first traveller.
+              Today our specialists design honeymoons on the Jumeirah coast, family adventures in Dubai, heritage days in Abu Dhabi and mountain escapes in Ras Al Khaimah, each one crafted with the same personal attention we gave our very first traveller.
             </p>
           </div>
           <ol className="mt-8 space-y-4 border-l border-gold/30 pl-6">

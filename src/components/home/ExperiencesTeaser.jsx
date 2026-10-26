@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { experiences } from '../../data/data'
 import Reveal from '../ui/Reveal'
+import { money } from '../../data/money'
 
 export default function ExperiencesTeaser() {
   return (
@@ -30,7 +31,7 @@ export default function ExperiencesTeaser() {
                   <p className="mt-2 text-[9.5px] tracking-[0.1em] text-stone uppercase sm:text-[11px] sm:tracking-[0.05em]">
                     {e.location} · {e.duration}
                   </p>
-                  <p className="mt-2 text-sm font-semibold text-gold-dark">From ${e.price.toLocaleString()}</p>
+                  <p className="mt-2 text-sm font-semibold text-gold-dark">From {money(e.price)}</p>
                 </div>
               </Link>
             </Reveal>

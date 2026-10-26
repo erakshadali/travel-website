@@ -55,7 +55,7 @@ describe('notification settings', () => {
     const { notify } = loadConfig(valid())
     assert.equal(notify.mode, 'log')
     assert.equal(notify.agencyEmail, undefined)
-    assert.equal(notify.email.from, 'Premium Tours and Travels <onboarding@resend.dev>')
+    assert.equal(notify.email.from, 'Rihla Travel <onboarding@resend.dev>')
     assert.equal(notify.whatsapp.apiVersion, 'v23.0')
     assert.equal(notify.whatsapp.templateLanguage, 'en')
   })

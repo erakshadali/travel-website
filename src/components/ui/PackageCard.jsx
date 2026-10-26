@@ -2,6 +2,7 @@ import { ArrowRight, Car, Clock, FileCheck, Hotel, Plane, Utensils } from 'lucid
 import { Link } from 'react-router-dom'
 import { inclusionLabels } from '../../data/data'
 import Stars from './Stars'
+import { money } from '../../data/money'
 
 export const inclusionIcons = { flight: Plane, hotel: Hotel, visa: FileCheck, meals: Utensils, transfers: Car }
 
@@ -43,7 +44,7 @@ export default function PackageCard({ p, search = '' }) {
           <p className="text-xs text-muted">
             per person
             <span className="block font-serif text-3xl text-champagne">
-              ${p.price.toLocaleString()}
+              {money(p.price)}
             </span>
           </p>
           <Link

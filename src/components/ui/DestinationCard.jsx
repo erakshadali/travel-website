@@ -2,6 +2,7 @@ import { ArrowRight, MapPin } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import Stars from './Stars'
 import TiltCard from './TiltCard'
+import { money } from '../../data/money'
 
 export default function DestinationCard({ d }) {
   return (
@@ -32,7 +33,7 @@ export default function DestinationCard({ d }) {
             <p className="text-sm text-ivory/80">
               from{' '}
               <span className="font-serif text-2xl text-gold-light">
-                ${d.price.toLocaleString()}
+                {money(d.price)}
               </span>
             </p>
             <Link

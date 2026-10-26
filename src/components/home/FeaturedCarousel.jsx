@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { destinations } from '../../data/data'
 import Reveal from '../ui/Reveal'
+import { money } from '../../data/money'
 
 export default function FeaturedCarousel() {
   return (
@@ -34,7 +35,7 @@ export default function FeaturedCarousel() {
                     <span aria-hidden className="h-1 w-1 rounded-full bg-gold-dark" /> Best Time: {d.bestTime}
                   </span>
                   <p className="mt-3 text-sm font-medium text-charcoal">
-                    Packages from <span className="font-serif text-lg text-gold-dark">${d.price.toLocaleString()}</span>
+                    Packages from <span className="font-serif text-lg text-gold-dark">{money(d.price)}</span>
                   </p>
                 </div>
               </Link>

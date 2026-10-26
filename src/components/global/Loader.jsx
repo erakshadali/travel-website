@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { site } from '../../data/data'
 
 // Full-screen intro with an animated gold logo stroke.
 export default function Loader() {
@@ -8,7 +9,7 @@ export default function Loader() {
       initial={{ opacity: 1 }}
       exit={{ opacity: 0, transition: { duration: 0.7, ease: 'easeInOut' } }}
       role="status"
-      aria-label="Loading Premium Tours and Travels"
+      aria-label={`Loading ${site.name}`}
     >
       <svg width="120" height="120" viewBox="0 0 64 64" aria-hidden>
         <defs>
@@ -30,7 +31,7 @@ export default function Loader() {
           initial={{ opacity: 0, scale: 0.6 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.6, duration: 0.6 }}
           style={{ transformOrigin: 'center' }}
         >
-          P
+          {site.logoLetter}
         </motion.text>
       </svg>
       <motion.p
@@ -39,7 +40,7 @@ export default function Loader() {
         transition={{ delay: 0.5, duration: 1.1 }}
         className="mt-6 font-serif text-2xl text-ivory uppercase"
       >
-        Premium
+        {site.wordmark.main}
       </motion.p>
       <motion.p
         initial={{ opacity: 0 }}
@@ -47,7 +48,7 @@ export default function Loader() {
         transition={{ delay: 0.9 }}
         className="mt-2 text-[10px] tracking-[0.5em] text-gold uppercase"
       >
-        Tours &amp; Travels
+        {site.wordmark.sub}
       </motion.p>
       <div className="mt-8 h-px w-40 overflow-hidden bg-white/10">
         <motion.div className="h-full bg-champagne" initial={{ x: '-100%' }} animate={{ x: '0%' }} transition={{ duration: 1.6, ease: 'easeInOut' }} />

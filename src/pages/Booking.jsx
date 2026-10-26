@@ -8,6 +8,7 @@ import { destinations, packages, whatsappLink } from '../data/data'
 import { images } from '../data/images'
 import useDocumentTitle from '../hooks/useDocumentTitle'
 import { submitBooking } from '../services/api'
+import { money, moneySecondary } from '../data/money'
 
 const STEPS = ['Traveller', 'Trip', 'Requests']
 const ROOMS = [
@@ -20,7 +21,6 @@ const INSURANCE_PP = 45
 const CHILD_RATE = 0.7
 const TAX_RATE = 0.05
 const today = () => new Date().toISOString().split('T')[0]
-const money = (n) => `$${Math.round(n).toLocaleString()}`
 // These two mirror the server's rules, so mistakes are caught on the step where they were made.
 const PASSPORT_NAME = /^\p{L}[\p{L}\p{M}\s'’.-]*$/u
 // Country code required, 8-15 digits after the "+" ("00" also works).
@@ -241,7 +241,7 @@ export default function Booking() {
                       <select id="bk-package" className="input-lux cursor-pointer" value={data.trip.packageId} onChange={update('trip', 'packageId')}>
                         {packages.map((p) => (
                           <option key={p.id} value={p.id} className="bg-ink-2">
-                            {p.title} · {p.days}D/{p.nights}N · from ${p.price.toLocaleString()}
+                            {p.title} · {p.days}D/{p.nights}N · from {money(p.price)}
                           </option>
                         ))}
                       </select>
@@ -339,6 +339,7 @@ export default function Booking() {
                   {money(price.total)}
                 </motion.span>
               </div>
+              {moneySecondary(price.total) && <p className="text-right text-xs text-muted">≈ {moneySecondary(price.total)}</p>}
               <p className="flex items-center gap-2 pt-2 text-xs text-muted"><Lock size={12} aria-hidden /> No payment now · Free cancellation up to 30 days</p>
             </div>
           </div>

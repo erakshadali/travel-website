@@ -4,4 +4,6 @@ audit-shots
 dist-baseline
 node_modules
 scripts
-/server
+/server/test
+/server/scripts
+/server/.env

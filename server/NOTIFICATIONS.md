@@ -38,7 +38,7 @@ Messages that were only logged never block real ones: switch to `live` and the s
 - Test emails from `resend.dev` may land in spam. Look there first.
 
 **When you have a domain:** Resend > **Domains** > **Add Domain** > add the DNS records it shows (at the company you bought the domain from) > **Verify**.
-Then set `EMAIL_FROM="Premium Tours and Travels <bookings@yourdomain.com>"` in `.env`. Clients can now receive emails. The free plan allows 3 domains.
+Then set `EMAIL_FROM="Rihla Travel <bookings@yourdomain.com>"` in `.env`. Clients can now receive emails. The free plan allows 3 domains.
 
 ## 2. WhatsApp Cloud API (Meta)
 
@@ -47,7 +47,7 @@ Meta changes its screens now and then; if a button has moved, the official guide
 
 **A. Create the app and get the test number**
 1. Go to <https://developers.facebook.com> > **My Apps** > **Create App**.
-2. Choose the use case **Connect with customers through WhatsApp**. App name: `Premium Travels`. Pick (or create) a Business portfolio when asked. Click **Create app**.
+2. Choose the use case **Connect with customers through WhatsApp**. App name: `Rihla`. Pick (or create) a Business portfolio when asked. Click **Create app**.
 3. In the app dashboard open **WhatsApp** > **API Setup** (button: **Start using the API**). Choose or create a WhatsApp Business Account when asked.
 4. On that page, under **From**, Meta gives you a **test phone number**. Copy the **Phone number ID** (a long number, digits only) into `.env` as `WHATSAPP_PHONE_NUMBER_ID`.
    It is not the test number itself and not the "WhatsApp Business Account ID" shown next to it.
@@ -73,7 +73,7 @@ Meta changes its screens now and then; if a button has moved, the official guide
 2. Category: **Utility**. Name: `booking_confirmation` (exactly). Language: **English**.
 3. Body, pasted exactly (it is also in `src/notify/templates.js`):
 
-   > Hello {{1}}, thank you for booking with Premium Tours and Travels. Your booking reference is {{2}} for {{3}}, departing {{4}}. Our team is reviewing your request and will confirm shortly. We will send your trip updates here.
+   > Hello {{1}}, thank you for booking with Rihla Travel. Your booking reference is {{2}} for {{3}}, departing {{4}}. Our team is reviewing your request and will confirm shortly. We will send your trip updates here.
 
 4. When asked for sample values: `Aisha`, `FT-AB12CDE`, `Dubai Luxe Escape`, `12 Oct 2026`.
 5. Submit. Approval usually takes minutes, sometimes up to a day. Wait until the status is **Active**.

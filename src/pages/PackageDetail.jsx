@@ -10,6 +10,7 @@ import Stars from '../components/ui/Stars'
 import { destinations, inclusionLabels, packages, whatsappLink } from '../data/data'
 import useDocumentTitle from '../hooks/useDocumentTitle'
 import NotFound from './NotFound'
+import { money, moneySecondary } from '../data/money'
 
 export default function PackageDetail() {
   const { id } = useParams()
@@ -140,7 +141,8 @@ export default function PackageDetail() {
         <aside className="lg:sticky lg:top-28 lg:self-start">
           <div className="glass rounded-3xl p-7">
             <p className="text-sm text-muted">Starting from</p>
-            <p className="font-serif text-5xl text-champagne">${p.price.toLocaleString()}</p>
+            <p className="font-serif text-5xl text-champagne">{money(p.price)}</p>
+            {moneySecondary(p.price) && <p className="mt-1 text-sm text-muted">≈ {moneySecondary(p.price)}</p>}
             <p className="text-xs text-muted">per person, twin sharing</p>
             <div className="my-6 h-px bg-white/10" />
             <ul className="space-y-2 text-sm text-ivory/80">

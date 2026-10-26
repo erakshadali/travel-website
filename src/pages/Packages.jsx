@@ -3,6 +3,7 @@ import { Calendar, MapPin, Users, X } from 'lucide-react'
 import { useMemo, useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import FilterGroup from '../components/ui/FilterGroup'
+import PackageArchCard from '../components/ui/PackageArchCard'
 import PackageCard from '../components/ui/PackageCard'
 import PageHero from '../components/ui/PageHero'
 import { destinations, packages, tripTypes } from '../data/data'
@@ -99,7 +100,13 @@ export default function Packages() {
           )}
         </div>
 
-        <motion.div layout className="mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-6 flex flex-col gap-10 sm:hidden">
+          {results.map((p) => (
+            <PackageArchCard key={p.id} p={p} search={carry.toString()} />
+          ))}
+        </div>
+
+        <motion.div layout className="mt-6 hidden gap-6 sm:grid md:grid-cols-2 lg:grid-cols-3">
           <AnimatePresence mode="popLayout">
             {results.map((p) => (
               <motion.div key={p.id} layout initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, scale: 0.95 }} transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}>

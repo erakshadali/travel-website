@@ -2,6 +2,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { Search, SlidersHorizontal, X } from 'lucide-react'
 import { useMemo, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
+import DestinationArchCard from '../components/ui/DestinationArchCard'
 import DestinationCard from '../components/ui/DestinationCard'
 import FilterGroup from '../components/ui/FilterGroup'
 import PageHero from '../components/ui/PageHero'
@@ -49,12 +50,12 @@ export default function Destinations() {
       />
 
       <section className="container-lux py-12">
-        <div className="glass rounded-3xl p-5 sm:p-6">
+        <div className="glass rounded-3xl p-4 sm:p-6">
           <div className="flex flex-col gap-3 sm:flex-row">
             <div className="relative flex-1">
               <Search size={18} className="absolute top-1/2 left-4 -translate-y-1/2 text-gold" aria-hidden />
               <label htmlFor="dest-search" className="sr-only">Search destinations</label>
-              <input id="dest-search" value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Search destinations or countries…" className="input-lux pl-11" />
+              <input id="dest-search" value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Search destinations…" className="input-lux pl-11" />
             </div>
             <button onClick={() => setShowFilters((s) => !s)} aria-expanded={showFilters} aria-controls="dest-filters" className="btn-outline lg:hidden">
               <SlidersHorizontal size={16} aria-hidden /> Filters {activeCount > 0 && `(${activeCount})`}
@@ -78,7 +79,13 @@ export default function Destinations() {
           )}
         </div>
 
-        <motion.div layout className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-6 flex flex-col gap-10 sm:hidden">
+          {results.map((d) => (
+            <DestinationArchCard key={d.id} d={d} />
+          ))}
+        </div>
+
+        <motion.div layout className="mt-6 hidden gap-6 sm:grid sm:grid-cols-2 lg:grid-cols-3">
           <AnimatePresence mode="popLayout">
             {results.map((d) => (
               <motion.div key={d.id} layout initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}>

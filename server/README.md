@@ -1,4 +1,4 @@
-# Premium Travels API
+# Rihla API
 
 Node.js + Express + MongoDB (Mongoose). ESM, Node 20+.
 

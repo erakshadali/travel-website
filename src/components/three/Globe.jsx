@@ -7,6 +7,7 @@ import { feature } from 'topojson-client'
 import landTopo from 'world-atlas/land-110m.json'
 import { globePoints } from '../../data/data'
 import useMediaQuery from '../../hooks/useMediaQuery'
+import { money } from '../../data/money'
 
 const RADIUS = 2
 const GOLD = '#C9A96E'
@@ -14,13 +15,9 @@ const GOLD_LIGHT = '#E6D3A3'
 
 // Flight routes drawn as arcs (by destination id)
 const ROUTES = [
-  ['dubai', 'paris'],
-  ['dubai', 'maldives'],
-  ['dubai', 'thailand'],
-  ['dubai', 'switzerland'],
-  ['thailand', 'bali'],
-  ['paris', 'switzerland'],
-  ['maldives', 'bali'],
+  ['dubai', 'abu-dhabi'],
+  ['dubai', 'ras-al-khaimah'],
+  ['abu-dhabi', 'ras-al-khaimah'],
 ]
 
 function latLonToVec3(lat, lon, r = RADIUS) {
@@ -168,7 +165,7 @@ function PinCard({ point, onSelect, onEnter, onLeave }) {
         <p className="text-[10px] tracking-[0.3em] text-gold uppercase">{point.country === point.name ? point.region : point.country}</p>
         <p className="font-serif text-xl leading-tight text-ivory">{point.name}</p>
         <p className="mt-1 text-xs font-light text-muted">
-          From <span className="text-gold-light">${point.price.toLocaleString()}</span>
+          From <span className="text-gold-light">{money(point.price)}</span>
         </p>
         <button
           onClick={() => onSelect?.(point.id)}

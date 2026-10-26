@@ -5,11 +5,11 @@ import Reveal from '../ui/Reveal'
 // [image index in galleryImages, caption title, caption subtitle, grid span]
 const cells = [
   { i: 0, title: 'Dubai', subtitle: 'Skyline icons & golden dunes', span: 'col-span-2 row-span-2' },
-  { i: 1, title: 'Maldives', span: 'col-span-1 row-span-1' },
-  { i: 2, title: 'Paris', span: 'col-span-1 row-span-1' },
-  { i: 3, title: 'Bali', subtitle: 'Temples & rice terraces', span: 'col-span-2 row-span-1' },
-  { i: 4, title: 'Switzerland', span: 'col-span-1 row-span-2' },
-  { i: 6, title: 'Santorini', subtitle: 'Whitewashed cliffs at dusk', span: 'col-span-2 row-span-1' },
+  { i: 1, title: 'Jumeirah', span: 'col-span-1 row-span-1' },
+  { i: 2, title: 'Abu Dhabi', span: 'col-span-1 row-span-1' },
+  { i: 3, title: 'Ras Al Khaimah', subtitle: 'Hajar mountain roads', span: 'col-span-2 row-span-1' },
+  { i: 4, title: 'Desert', span: 'col-span-1 row-span-2' },
+  { i: 5, title: 'Dubai Marina', subtitle: 'Yacht cruises at sea', span: 'col-span-2 row-span-1' },
 ]
 
 export default function GalleryStrip() {

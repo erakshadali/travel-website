@@ -9,7 +9,7 @@ export default function PageHero({ eyebrow, title, subtitle, image, children }) 
   const opacity = useTransform(scrollYProgress, [0, 1], [1, 0.2])
 
   return (
-    <section ref={ref} className="relative flex min-h-[60vh] items-end overflow-hidden pt-32 pb-16">
+    <section ref={ref} className="relative flex min-h-[44vh] items-end overflow-hidden pt-28 pb-10 sm:min-h-[60vh] sm:pt-32 sm:pb-16">
       <motion.img
         src={image}
         alt=""

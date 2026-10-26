@@ -4,6 +4,7 @@ import { Route, Routes, useLocation } from 'react-router-dom'
 import GoldCursor from './components/global/GoldCursor'
 import Loader from './components/global/Loader'
 import FloatingActions from './components/global/FloatingActions'
+import MobileActionBar from './components/global/MobileActionBar'
 import Footer from './components/layout/Footer'
 import Navbar from './components/layout/Navbar'
 
@@ -79,7 +80,11 @@ export default function App() {
         </AnimatePresence>
       </main>
       <Footer />
-      <FloatingActions />
+      <div className="h-20 sm:hidden" aria-hidden />
+      <MobileActionBar />
+      <div className="hidden sm:block">
+        <FloatingActions />
+      </div>
     </>
   )
 }

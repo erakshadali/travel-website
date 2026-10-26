@@ -27,7 +27,7 @@ const schema = z
     NOTIFY_MODE: z.enum(['log', 'live'], 'NOTIFY_MODE must be "log" or "live"').default('log'),
     SITE_URL: optional(z.url('SITE_URL must be a full URL such as https://your-site.vercel.app')),
     AGENCY_EMAIL: optional(email), // where "new booking" alerts go
-    EMAIL_FROM: z.string().trim().min(3).default('Premium Tours and Travels <onboarding@resend.dev>'),
+    EMAIL_FROM: z.string().trim().min(3).default('Rihla Travel <onboarding@resend.dev>'),
     RESEND_API_KEY: optional(z.string().trim().min(10, 'RESEND_API_KEY looks too short')),
     WHATSAPP_PHONE_NUMBER_ID: optional(z.string().trim().regex(/^\d{5,20}$/, 'WHATSAPP_PHONE_NUMBER_ID must be the numeric "Phone number ID" (digits only)')),
     WHATSAPP_ACCESS_TOKEN: optional(z.string().trim().min(20, 'WHATSAPP_ACCESS_TOKEN looks too short')),

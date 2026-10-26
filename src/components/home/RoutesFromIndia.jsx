@@ -19,11 +19,11 @@ export default function RoutesFromIndia() {
       <div className="container-lux grid items-center gap-10 lg:grid-cols-2 lg:gap-12">
         <Reveal>
           <p className="text-[11px] tracking-[0.3em] text-gold-light uppercase sm:text-xs sm:tracking-[0.35em]">Fly With Confidence</p>
-          <h2 className="mt-3 font-serif text-[2rem] font-medium text-white sm:text-5xl">Our Routes from Delhi</h2>
+          <h2 className="mt-3 font-serif text-[2rem] font-medium text-white sm:text-5xl">Our Routes to the UAE</h2>
           <div className="mt-4 h-px w-10 bg-gold" />
           <div className="mt-8 flex flex-col sm:mt-10">
             {routesFromIndia.map((r) => (
-              <div key={r.to} className="flex items-center justify-between border-t border-white/15 py-4 sm:py-5">
+              <div key={`${r.from}-${r.to}`} className="flex items-center justify-between border-t border-white/15 py-4 sm:py-5">
                 <p className="text-[15px] text-white sm:text-lg">
                   {r.from} → {r.to}
                 </p>
