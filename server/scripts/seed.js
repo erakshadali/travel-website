@@ -27,10 +27,10 @@ const isoDate = (d) => d.toISOString().slice(0, 10)
 const base = { whatsappConsent: true, currency: 'USD', roomType: 'deluxe', travellers: { adults: 2, children: 0 } }
 const samples = [
   { ...base, clientName: 'Aisha Khan', email: 'aisha@example.test', whatsappNumber: '+919820012345', passportName: 'AISHA KHAN', packageName: 'Dubai Luxe Escape', destination: 'Dubai', travelDate: day(30), estimatedTotal: 4200, status: 'Received' },
-  { ...base, clientName: 'Bilal Ahmed', email: 'bilal@example.test', whatsappNumber: '+447700900123', passportName: 'BILAL AHMED', packageName: 'Maldives Overwater Romance', destination: 'Maldives', travelDate: day(45), roomType: 'suite', occasion: 'Honeymoon', estimatedTotal: 9800, status: 'Under Review' },
-  { ...base, clientName: 'Chloe Dupont', email: 'chloe@example.test', whatsappNumber: '+33612345678', passportName: 'CHLOE DUPONT', packageName: 'Paris Romance', destination: 'Paris', travelDate: day(20), estimatedTotal: 5100, status: 'Confirmed' },
+  { ...base, clientName: 'Bilal Ahmed', email: 'bilal@example.test', whatsappNumber: '+447700900123', passportName: 'BILAL AHMED', packageName: 'Dubai Honeymoon', destination: 'Jumeirah & Palm', travelDate: day(45), roomType: 'suite', occasion: 'Honeymoon', estimatedTotal: 9800, status: 'Under Review' },
+  { ...base, clientName: 'Chloe Dupont', email: 'chloe@example.test', whatsappNumber: '+33612345678', passportName: 'CHLOE DUPONT', packageName: 'Emirates Grand Tour', destination: 'Dubai', travelDate: day(20), estimatedTotal: 5100, status: 'Confirmed' },
   { ...base, clientName: 'Farhan Sheikh', email: 'farhan@example.test', whatsappNumber: '+919876543210', passportName: 'FARHAN SHEIKH', packageName: 'Dubai Luxe Escape', destination: 'Dubai', travelDate: day(2), travellers: { adults: 2, children: 1 }, estimatedTotal: 5600, status: 'Ticket Issued', flight: true },
-  { ...base, clientName: 'Gita Rao', email: 'gita@example.test', whatsappNumber: '+14155550123', passportName: 'GITA RAO', packageName: 'Bali Wellness Retreat', destination: 'Bali', travelDate: day(-40), roomType: 'standard', whatsappConsent: false, estimatedTotal: 3300, status: 'Completed' },
+  { ...base, clientName: 'Gita Rao', email: 'gita@example.test', whatsappNumber: '+14155550123', passportName: 'GITA RAO', packageName: 'Abu Dhabi Heritage', destination: 'Abu Dhabi', travelDate: day(-40), roomType: 'standard', whatsappConsent: false, estimatedTotal: 3300, status: 'Completed' },
 ]
 
 await mongoose.connect(process.env.MONGODB_URI, { serverSelectionTimeoutMS: 10_000 })

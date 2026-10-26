@@ -7,6 +7,10 @@ import { isBackendConfigured } from '../api'
 import { useAdminAuth } from '../auth'
 import { Field, Notice } from '../ui'
 
+const DEMO_EMAIL = import.meta.env.VITE_DEMO_ADMIN_EMAIL
+const DEMO_PASSWORD = import.meta.env.VITE_DEMO_ADMIN_PASSWORD
+const demoLogin = !!(DEMO_EMAIL && DEMO_PASSWORD)
+
 export default function Login() {
   useDocumentTitle('Admin sign in')
   const { token, expired, login } = useAdminAuth()
@@ -27,6 +31,18 @@ export default function Login() {
     setError('')
     try {
       await login(email.trim(), password)
+    } catch (err) {
+      setError(err.message)
+      setBusy(false)
+    }
+  }
+
+  // Demo deployments publish a sample admin account (a throwaway database, never a real one).
+  const tryDemo = async () => {
+    setBusy(true)
+    setError('')
+    try {
+      await login(DEMO_EMAIL, DEMO_PASSWORD)
     } catch (err) {
       setError(err.message)
       setBusy(false)
@@ -76,6 +92,15 @@ export default function Login() {
             {busy ? 'Signing in...' : <>Sign in <LogIn size={16} aria-hidden /></>}
           </button>
         </form>
+
+        {demoLogin && (
+          <div className="mt-6 border-t border-white/10 pt-6 text-center">
+            <p className="text-xs text-muted">Exploring the demo? Sign in with the sample admin account.</p>
+            <button type="button" disabled={busy} onClick={tryDemo} className="btn-outline mt-3 w-full">
+              Try the demo admin
+            </button>
+          </div>
+        )}
 
         <p className="mt-8 text-center text-sm">
           <Link to="/" className="inline-flex min-h-11 items-center text-muted hover:text-gold-light">Back to the website</Link>
