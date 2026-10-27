@@ -14,13 +14,13 @@ export const site = {
   tagline: 'Journeys Crafted in Gold',
   // Prices in this file are in the primary currency; `secondary` is shown beside them where space allows
   currency: { code: 'USD', symbol: '$', secondary: { code: 'AED', symbol: 'AED ', rate: 3.6725 } },
-  phone: '+91 98200 00000',
+  phone: '+971 4 000 0000',
   // WhatsApp number in international format, digits only (no +, spaces or dashes)
-  whatsapp: '919820000000',
+  whatsapp: '971500000000',
   whatsappMessage: "Hello Rihla Travel! I'd like to plan a trip.",
-  email: 'hello@premiumtravels.com',
-  address: 'Level 9, DLF Capital Point, Connaught Place, New Delhi, India',
-  hours: 'Mon – Sat, 9:00 AM – 8:00 PM IST',
+  email: 'hello@rihlatravel.ae',
+  address: 'Level 14, Churchill Towers, Business Bay, Dubai, UAE',
+  hours: 'Mon – Sat, 9:00 AM – 8:00 PM GST',
   social: {
     instagram: 'https://instagram.com/',
     facebook: 'https://facebook.com/',
