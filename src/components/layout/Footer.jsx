@@ -69,7 +69,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="border-t border-white/5">
-        <div className="container-lux flex flex-col items-center justify-between gap-3 py-6 text-xs text-muted sm:flex-row">
+        <div className="container-lux flex flex-col items-center justify-between gap-3 py-6 text-[15px] text-muted sm:flex-row sm:text-xs">
           <p>© {new Date().getFullYear()} {site.name}. All rights reserved.</p>
           <p>Crafted with care for the discerning traveller.</p>
         </div>

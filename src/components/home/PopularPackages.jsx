@@ -29,7 +29,7 @@ export default function PopularPackages() {
                 <div className="p-6">
                   <h3 className="font-serif text-2xl font-medium text-charcoal">{p.title}</h3>
                   <div className="mt-3 h-px w-7 bg-gold-dark" />
-                  <p className="mt-3.5 text-[11px] tracking-[0.15em] text-stone uppercase">
+                  <p className="mt-3.5 text-[15px] tracking-[0.06em] text-stone uppercase sm:text-[11px] sm:tracking-[0.15em]">
                     {p.days} Days · {p.nights} Nights · {p.type}
                   </p>
                   <p className="mt-3 font-serif text-lg font-medium text-gold-dark">From {money(p.price)}</p>

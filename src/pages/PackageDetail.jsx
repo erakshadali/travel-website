@@ -159,7 +159,7 @@ export default function PackageDetail() {
             >
               <MessageCircle size={16} aria-hidden /> Ask on WhatsApp
             </a>
-            <p className="mt-5 text-center text-xs text-muted">Free cancellation up to 30 days before departure</p>
+            <p className="mt-5 text-center text-[15px] text-muted sm:text-xs">Free cancellation up to 30 days before departure</p>
           </div>
         </aside>
       </div>

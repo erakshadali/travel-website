@@ -44,7 +44,7 @@ export default function FeaturedCarousel() {
         </div>
 
         <div className="mt-10 text-center sm:mt-14">
-          <Link to="/destinations" className="link-sweep-lt text-[12px] tracking-[0.2em] text-gold-dark uppercase">
+          <Link to="/destinations" className="link-sweep-lt inline-flex min-h-11 items-center text-[12px] tracking-[0.2em] text-gold-dark uppercase">
             View all destinations
           </Link>
         </div>

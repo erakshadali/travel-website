@@ -340,7 +340,7 @@ export default function Booking() {
                 </motion.span>
               </div>
               {moneySecondary(price.total) && <p className="text-right text-xs text-muted">≈ {moneySecondary(price.total)}</p>}
-              <p className="flex items-center gap-2 pt-2 text-xs text-muted"><Lock size={12} aria-hidden /> No payment now · Free cancellation up to 30 days</p>
+              <p className="flex items-center gap-2 pt-2 text-[15px] text-muted sm:text-xs"><Lock size={12} aria-hidden /> No payment now · Free cancellation up to 30 days</p>
             </div>
           </div>
         </aside>
