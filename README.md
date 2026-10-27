@@ -1,10 +1,11 @@
-# Premium Tours and Travels
+# Rihla Travel
 
-Luxury travel agency website built with React, Vite, Tailwind CSS, Framer Motion and React Three Fiber.
+White-label demo site for Dubai and Middle East tour operators, built with React, Vite, Tailwind CSS, Framer Motion and React Three Fiber.
+UAE destinations (Dubai, Abu Dhabi, Ras Al Khaimah), prices shown in AED with USD as the reference line.
 
-**Live site:** https://premium-travels-one.vercel.app
-**Admin panel:** https://premium-travels-one.vercel.app/admin — no backend is deployed yet, so this currently
-shows a "no backend configured" notice instead of the login form (see `server/README.md` to deploy it).
+**Live demo:** https://rihla-demo-ten.vercel.app (Vercel project `rihla-demo`)
+**Admin panel:** `/admin` — the demo deployment has no backend, so the forms are simulated and the admin shows a "no backend configured" notice
+(see `server/README.md` to deploy the API).
 
 ## Run it
 

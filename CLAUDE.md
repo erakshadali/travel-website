@@ -3,7 +3,7 @@
 Luxury travel agency website. Pages: Home, Destinations, Packages, Package detail,
 Experiences, Trip Planner, Booking, About, Contact, 404. The four forms (Booking, Trip Planner, Contact,
 Newsletter) POST to the backend in `server/` (see below) when `VITE_API_URL` is set, and are simulated otherwise.
-Live: https://premium-travels-one.vercel.app (Vercel project `premium-travels`; renamed from `fatima-travels`, see git history).
+Live: https://rihla-demo-ten.vercel.app (Vercel project `rihla-demo`). The old `premium-travels` project is a separate, older deployment.
 **The deployed version is OLD**: forms are simulated, there is no `/admin`, and no backend is deployed yet. Everything below runs locally.
 
 ## Status: what is done, what is left
