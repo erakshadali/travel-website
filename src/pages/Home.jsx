@@ -7,7 +7,7 @@ import HowItWorks from '../components/home/HowItWorks'
 import OfferBanner from '../components/home/OfferBanner'
 import PopularPackages from '../components/home/PopularPackages'
 import QuickActions from '../components/home/QuickActions'
-import RoutesFromIndia from '../components/home/RoutesFromIndia'
+import RoutesToUae from '../components/home/RoutesToUae'
 import ServicesRow from '../components/home/ServicesRow'
 import SpotlightDestinations from '../components/home/SpotlightDestinations'
 import Testimonials from '../components/home/Testimonials'
@@ -26,7 +26,7 @@ export default function Home() {
       <ServicesRow />
       <HowItWorks />
       <SpotlightDestinations />
-      <RoutesFromIndia />
+      <RoutesToUae />
       <OfferBanner />
       <ExperiencesTeaser />
       <WhyChooseUs />

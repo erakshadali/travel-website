@@ -1,4 +1,4 @@
-import { routesFromIndia } from '../../data/data'
+import { routesToUae } from '../../data/data'
 import Reveal from '../ui/Reveal'
 
 // Decorative orbit-lines mark, echoing the logo mark's globe motif.
@@ -13,7 +13,7 @@ function OrbitMark() {
   )
 }
 
-export default function RoutesFromIndia() {
+export default function RoutesToUae() {
   return (
     <section className="bg-ink py-16 sm:py-24 lg:py-28">
       <div className="container-lux grid items-center gap-10 lg:grid-cols-2 lg:gap-12">
@@ -22,7 +22,7 @@ export default function RoutesFromIndia() {
           <h2 className="mt-3 font-serif text-[2rem] font-medium text-white sm:text-5xl">Our Routes to the UAE</h2>
           <div className="mt-4 h-px w-10 bg-gold" />
           <div className="mt-8 flex flex-col sm:mt-10">
-            {routesFromIndia.map((r) => (
+            {routesToUae.map((r) => (
               <div key={`${r.from}-${r.to}`} className="flex items-center justify-between border-t border-white/15 py-4 sm:py-5">
                 <p className="text-[15px] text-white sm:text-lg">
                   {r.from} → {r.to}

@@ -146,15 +146,15 @@ export const globePoints = destinations.filter((d) =>
   ['dubai', 'abu-dhabi', 'ras-al-khaimah'].includes(d.id),
 )
 
-// Illustrative flight times from the agency's home market, shown on the Home page "Fly With Confidence" band.
-export const routesFromIndia = [
-  { from: 'Delhi', to: 'Dubai', duration: '3h 30m' },
+// Illustrative flight times from the main inbound hubs, shown on the Home page "Fly With Confidence" band.
+export const routesToUae = [
+  { from: 'London', to: 'Dubai', duration: '7h 00m' },
+  { from: 'Riyadh', to: 'Dubai', duration: '2h 05m' },
   { from: 'Mumbai', to: 'Dubai', duration: '3h 15m' },
-  { from: 'Delhi', to: 'Abu Dhabi', duration: '3h 40m' },
-  { from: 'Mumbai', to: 'Ras Al Khaimah', duration: '3h 25m' },
+  { from: 'Cairo', to: 'Abu Dhabi', duration: '4h 15m' },
 ]
 
-// Two large feature cards on the Home page, between "How It Works" and "Routes from India".
+// Two large feature cards on the Home page, between "How It Works" and "Routes to the UAE".
 export const homeSpotlights = [
   { destination: 'dubai', eyebrow: 'UAE & The Gulf', title: 'Discover Dubai', image: images.spotlights.dubai },
   { destination: 'abu-dhabi', eyebrow: 'The Capital', title: 'Discover Abu Dhabi', image: images.spotlights['abu-dhabi'] },
